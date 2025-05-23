@@ -18,36 +18,4 @@ public class Project {
 	joinColumns = @JoinColumn(name="pro_id"),
 	inverseJoinColumns = @JoinColumn(name="emp_id"))
 	private List<Employee>employees;
-	public Project(int id, String name, long totalCost, List<Employee> employees) {
-		this.id = id;
-		this.name = name;
-		this.totalCost = totalCost;
-		this.employees = employees;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public long getTotalCost() {
-		return totalCost;
-	}
-	public void setTotalCost(long totalCost) {
-		this.totalCost = totalCost;
-	}
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
-	
 }
