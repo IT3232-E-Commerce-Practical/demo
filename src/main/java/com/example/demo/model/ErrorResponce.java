@@ -7,6 +7,10 @@ public class ErrorResponce {
     public ErrorResponce(){
 
     }
+    public ErrorResponce(int statusCode, String errorMessage) {
+        this.statusCode = statusCode;
+        this.errorMessage = errorMessage;
+    }
     public int getStatusCode() {
         return statusCode;
     }
