@@ -13,8 +13,7 @@ public class GenericExceptionHandler {
 	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<ErrorResponce> handleEntityNotFound(EntityNotFoundException exception) {
-		ErrorResponce errorResponce = new ErrorResponce(HttpStatus.NOT_FOUND.value(), 
-				exception.getMessage());
+		ErrorResponce errorResponce = new ErrorResponce(HttpStatus.NOT_FOUND.value(), exception.getMessage());
 		return new ResponseEntity<ErrorResponce>(errorResponce, HttpStatus.NOT_FOUND);
 	}
 
