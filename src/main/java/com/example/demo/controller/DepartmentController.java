@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lk.ac.vau.fas.ict.model.Department;
-import lk.ac.vau.fas.ict.service.DepartmentService;
+import com.example.demo.model.Department;
+import com.example.demo.service.DepartmentService;
+
+
 
 @RestController
 @RequestMapping("/dept")
@@ -28,27 +30,17 @@ public class DepartmentController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Department> getDept(@PathVariable("id") int id) {
 		return new ResponseEntity<Department>(service.getDept(id),HttpStatus.OK);
-	}/*
-	@PostMapping
-	public String addDept(@RequestBody Department department) {
-		repo.save(department);
-		return "New department added";
 	}
-	@PutMapping("/{id}")
-	public String updateDept(@PathVariable("id") int id,@RequestBody Department department) {
-		if(repo.findById(id).isEmpty()) {
-			return "couldn't find the department";
-		}
-		repo.save(department);
-		return "the department updated";
+	
+	@GetMapping("/names")
+	public ResponseEntity<List<String>>getDepartmentNames(){
+		return new ResponseEntity<List<String>>(service.getDepartmentNames(),HttpStatus.OK);
 	}
-	@DeleteMapping("/{id}")
-	public String deleteDept(@PathVariable("id") int id) {
-		if(repo.findById(id).isEmpty()) {
-			return "couldn't find the department";
-		}
-		repo.deleteById(id);
-		return "the department deleted";
-	}*/
-
+	@GetMapping("/search/{name}")
+	public ResponseEntity<List<Department>>searchName(@PathVariable("name") String name){
+		return new ResponseEntity<List<Department>>(service.searchDepartmentByName(name),HttpStatus.OK);
+	}
 }
+	
+	
+
