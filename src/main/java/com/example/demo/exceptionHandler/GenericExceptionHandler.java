@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import jakarta.persistence.EntityNotFoundException;
-import lk.ac.vau.fas.ict.model.ErrorResponce;
+import com.example.demo.model.ErrorResponce;
 
 @RestControllerAdvice
 public class GenericExceptionHandler {

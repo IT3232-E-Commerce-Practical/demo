@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
-import lk.ac.vau.fas.ict.model.Department;
-import lk.ac.vau.fas.ict.repo.DepartmentRepo;
+import com.example.demo.model.Department;
+import com.example.demo.repo.DepartmentRepo;
 
 @Service
 public class DepartmentService {
