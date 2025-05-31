@@ -24,25 +24,26 @@ public class DepartmentService {
 		}
 		return repo.findById(id).get();
 	}
-
-	public String addDept(Department department){
-		if (repo.findById(department.getId()).isPresent()){
-			throw new DuplicateKeyException("The department is alredy available");
+	
+	public String addDept(Department department) {
+		//before adding a department make sure that the department id is unique
+		if(repo.findById(department.getId()).isPresent()) {
+			throw new DuplicateKeyException("The department id is already available");
 		}
 		repo.save(department);
 		return "New department added";
 	}
-
-	public List<String>getDepartmentNames(){
-		if (repo.getDeptNames().isEmpty()) {
+	//update
+	
+	public List<String>getDepartmentNames() {
+		if(repo.getDeptNames().isEmpty()) {
 			throw new EntityNotFoundException("Department Not Found");
 		}
 		return repo.getDeptNames();
 	}
-
 	
-	public List<Department> searchDepartmentByName(String name){
-		if (repo.searchName(name).isEmpty()) {
+	public List<Department>searchDepartmentByName(String name) {
+		if(repo.searchName(name).isEmpty()) {
 			throw new EntityNotFoundException("Department Not Found");
 		}
 		return repo.searchName(name);

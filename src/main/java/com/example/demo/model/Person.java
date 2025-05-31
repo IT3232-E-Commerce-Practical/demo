@@ -14,7 +14,11 @@ public class Person {
 		this.gender = gender;
 	}
 
-	public String getName() {
+	public Person() {
+        //TODO Auto-generated constructor stub
+    }
+
+    public String getName() {
 		return name;
 	}
 
@@ -37,6 +41,4 @@ public class Person {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-	
 }

@@ -10,10 +10,10 @@ import com.example.demo.model.Department;
 
 @Repository
 public interface DepartmentRepo extends JpaRepository<Department, Integer> {
-    
-    @Query("SELECT name FROM Department")
-    public List<String>getDeptNames();
-
-    @Query("SELECT d From Department d WHERE d.name LIKE %?1%")
-    public List<Department> searchName(String name);
+	//JPQL
+	@Query("select name from Department")
+	public List<String>getDeptNames();
+	
+	@Query("select d from Department d where d.name like %?1%")
+	public List<Department> searchName(String name);
 }

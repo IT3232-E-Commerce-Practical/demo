@@ -7,13 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Department;
 import com.example.demo.service.DepartmentService;
-
-
 
 @RestController
 @RequestMapping("/dept")
@@ -32,15 +32,37 @@ public class DepartmentController {
 		return new ResponseEntity<Department>(service.getDept(id),HttpStatus.OK);
 	}
 	
+	@PostMapping
+	public ResponseEntity<String> addDept(@RequestBody Department department) {
+		return new ResponseEntity<String>(service.addDept(department),HttpStatus.OK);
+	}
+	/*
+	@PutMapping("/{id}")
+	public String updateDept(@PathVariable("id") int id,@RequestBody Department department) {
+		if(repo.findById(id).isEmpty()) {
+			return "couldn't find the department";
+		}
+		repo.save(department);
+		return "the department updated";
+	}
+	@DeleteMapping("/{id}")
+	public String deleteDept(@PathVariable("id") int id) {
+		if(repo.findById(id).isEmpty()) {
+			return "couldn't find the department";
+		}
+		repo.deleteById(id);
+		return "the department deleted";
+	}*/
 	@GetMapping("/names")
-	public ResponseEntity<List<String>>getDepartmentNames(){
-		return new ResponseEntity<List<String>>(service.getDepartmentNames(),HttpStatus.OK);
+	public ResponseEntity<List<String>>getNames(){
+		return new ResponseEntity<List<String>>
+		(service.getDepartmentNames(),HttpStatus.OK);
 	}
-	@GetMapping("/search/{name}")
-	public ResponseEntity<List<Department>>searchName(@PathVariable("name") String name){
-		return new ResponseEntity<List<Department>>(service.searchDepartmentByName(name),HttpStatus.OK);
-	}
-}
-	
 	
 
+	@GetMapping("/search/{nm}")
+	public ResponseEntity<List<Department>>searchDepts(@PathVariable("nm") String name){
+		return new ResponseEntity<List<Department>>
+		(service.searchDepartmentByName(name),HttpStatus.OK);
+	}
+}

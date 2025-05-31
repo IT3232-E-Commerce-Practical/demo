@@ -3,6 +3,8 @@ package com.example.demo.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,6 +17,7 @@ public class Department {
 	@Column(nullable = false)
 	private String name;
 	private Date established;
+	@JsonIgnore
 	@OneToMany(mappedBy = "department")
 	private List<Employee>employees;
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
@@ -16,20 +17,19 @@ public class Employee extends Person {
 	private Department department;
 	@ManyToMany(mappedBy = "employees")
 	private List<Project>projects;
-	public String getEmpNo() {
-		return empNo;
-	}
-
-	public Employee(String name, int age, String gender, String empNo, double salary, Department department,
-	List<Project> projects) {
-		super(name, age, gender);
+	public Employee(String empNo, double salary, Department department, List<Project> projects) {
+		super();
 		this.empNo = empNo;
 		this.salary = salary;
 		this.department = department;
 		this.projects = projects;
 	}
-
-
+	public Employee() {
+		super();
+	}
+	public String getEmpNo() {
+		return empNo;
+	}
 	public void setEmpNo(String empNo) {
 		this.empNo = empNo;
 	}
