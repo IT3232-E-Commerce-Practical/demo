@@ -36,24 +36,7 @@ public class DepartmentController {
 	public ResponseEntity<String> addDept(@RequestBody Department department) {
 		return new ResponseEntity<String>(service.addDept(department),HttpStatus.OK);
 	}
-	/*
-	@PutMapping("/{id}")
-	public String updateDept(@PathVariable("id") int id,@RequestBody Department department) {
-		if(repo.findById(id).isEmpty()) {
-			return "couldn't find the department";
-		}
-		repo.save(department);
-		return "the department updated";
-	}
-	@DeleteMapping("/{id}")
-	public String deleteDept(@PathVariable("id") int id) {
-		if(repo.findById(id).isEmpty()) {
-			return "couldn't find the department";
-		}
-		repo.deleteById(id);
-		return "the department deleted";
-	}*/
-	@GetMapping("/names")
+		@GetMapping("/names")
 	public ResponseEntity<List<String>>getNames(){
 		return new ResponseEntity<List<String>>
 		(service.getDepartmentNames(),HttpStatus.OK);

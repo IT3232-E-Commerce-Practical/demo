@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
 import com.example.demo.model.Department;
+import com.example.demo.model.ViewDepartment;
 import com.example.demo.repo.DepartmentRepo;
 
 @Service
@@ -48,4 +49,12 @@ public class DepartmentService {
 		}
 		return repo.searchName(name);
 	}
+
+	public ViewDepartment getEmpCountView(int id){
+		if(repo.findById(id)==null){
+			throw new EntityNotFoundException("Department Not Found");
+		}
+		
+	}
+	
 }
